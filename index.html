@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>მათემატიკა</title>
+    <script>
+        function performOperation(operation) {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("გთხოვთ რიცხვი მიუთითეთ");
+                return;
+            }
+
+            var result;
+
+            switch(operation) {
+                case "add":
+                    result = num1 + num2;
+                    break;
+                case "subtract":
+                    result = num1 - num2;
+                    break;
+                case "multiply":
+                    result = num1 * num2;
+                    break;
+                case "divide":
+                    if (num2 === 0) {
+                        alert("ნოლზე ვერ გაყოფ!.");
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+                    alert("Invalid operation.");
+                    return;
+            }
+
+            alert("Result: " + result);
+        }
+    </script>
+</head>
+<body>
+    <label for="num1"> რიცხვი:</label>
+    <input type="number" id="num1" name="num1"><br><br>
+
+    <label for="num2"> რიცხვი:</label>
+    <input type="number" id="num2" name="num2"><br><br>
+
+    <button onclick="performOperation('add')">ჯამი</button>
+    <button onclick="performOperation('subtract')">სხვაობა</button>
+    <button onclick="performOperation('multiply')">გამრავლება</button>
+    <button onclick="performOperation('divide')">გაყოფა</button>
+</body>
+</html>
